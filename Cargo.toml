@@ -1,6 +1,16 @@
 [package]
-name = "PQCDronesProtocol"
+name = "rust_macs"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
+
+[lib]
+name = "rust_macs"  # This will be the name of the Python module
+crate-type = ["cdylib"] # Compiles to a C-style dynamic library for Python
 
 [dependencies]
+sha2 = "0.10"
+
+# Add the pyo3 dependency with the "extension-module" feature
+[dependencies.pyo3]
+version = "0.22.0"
+features = ["extension-module"]
